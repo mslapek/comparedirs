@@ -1,6 +1,6 @@
 from fnmatch import fnmatch
-from os import walk
-from os.path import join, relpath
+from os import makedirs, walk
+from os.path import dirname, exists, join, relpath
 from shutil import copyfile
 
 
@@ -52,6 +52,11 @@ def _copy_files_comparer(src, dest, files):
     for filepath in files:
         file_src = join(src, filepath)
         file_dest = join(dest, filepath)
+        file_dest_catalog = dirname(file_dest)
+
+        if file_dest_catalog and not exists(file_dest_catalog):
+            makedirs(file_dest_catalog, exist_ok=True)
+
         copyfile(file_src, file_dest)
 
 
