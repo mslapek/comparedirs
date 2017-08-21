@@ -37,10 +37,9 @@ class Main:
 
     def _ask_to_copy_files(self):
         if self.comparer.dir1_additional:
-            response = self._ask('Copy additional files from ' +
-                                 self.comparer.dir1 + ' to ' +
-                                 self.comparer.dir2 + '? [n]/y: ')
-            if response in ['y', 'yes']:
+            response = self._ask('Copy additional files from ' + self.comparer.
+                                 dir1 + ' to ' + self.comparer.dir2 + '?')
+            if response:
                 try:
                     self.comparer.copy_from_dir1()
                 except OSError as error:
@@ -54,8 +53,14 @@ class Main:
         if self._assumeyes:
             return True
         else:
-            response = input(msg)
-            return response in ['y', 'yes']
+            while True:
+                response = input(msg + ' [y/N] ').lower().strip()
+                if response in ['yes', 'y']:
+                    return True
+                elif response in ['no', 'n', '']:
+                    return False
+                else:
+                    print('Try again with Y or N.')
 
 
 def _print_error(error):
