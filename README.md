@@ -60,7 +60,6 @@ System Volume Information/*
 Then the sample output is following:
 
 ```
-
 Directory /books:
 << Statistics/ESLII.pdf
 ```
@@ -85,7 +84,7 @@ python comparedirs/cmpdir.py C:\Books E:\ --ignore-list C:\ignore_list.txt --cop
 pause
 ```
 
-SD card can be determinded also by volume label, such as EBKSD
+SD card can be determined also by volume label, such as EBKSD
 ([reference a volume drive by label on SO]).
 
 ```bat
@@ -96,4 +95,4 @@ pause
 ```
 
 [glob pattern]: https://en.wikipedia.org/wiki/Glob_%28programming%29
-[reference a volume drive by label on SO]: https:/stackoverflow.com/questions/9065280/reference-a-volume-drive-by-label
+[reference a volume drive by label on SO]: https://stackoverflow.com/questions/9065280/reference-a-volume-drive-by-label
